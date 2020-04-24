@@ -2,36 +2,19 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Get All users from Git-hub</title>
+<title>Get All users </title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
-<script>
-$(document).ready(function(){
-	$("#getButton").click(function() {
-		$.getJSON("https://api.github.com/users", function(jsonDoc){
-			var table="<thead><tr><th scope='col'>id</th><th scope='col'>name</th><th scope='col'>Github link</th></tr></thead><tbody>";
-			$.each(jsonDoc,function(idx){
-				table+="<tr><th scope='row'>"+jsonDoc[idx].id+"</th><td>"
-				+"<a href='http://localhost:8080/Assessment-2/followers.html?followers="+jsonDoc[idx].followers_url+"'>"+jsonDoc[idx].login+"</a></td><td>"
-				+ jsonDoc[idx].url+"</td></tr>";
-			});
-			table+="</tbody>"
-			document.getElementById("result").innerHTML =table;
-		});
-	
-	});
-});
-</script>
+<script src="js/index.js"></script>
+
 </head>
 <body>
-	<button id="getButton" type="button" class="btn btn-primary btn-lg">Get
+	<button id="getButton" type="button" class="btn btn-info">Get
 		All Users</button>
 	<table id="result" class="table table-striped" ></table>
 </body>
